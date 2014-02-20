@@ -25,6 +25,7 @@ import android.app.ActivityOptions;
 import android.app.TaskStackBuilder;
 import android.app.admin.DevicePolicyManager;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -205,8 +206,6 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
             holder.labelView.setText(td.getLabel());
             holder.thumbnailView.setContentDescription(td.getLabel());
             holder.loadedThumbnailAndIcon = td.isLoaded();
-            holder.lockedIcon.setAlpha(0f);
-            holder.lockedIcon.setTranslationX(translation);
             if (sLockedTasks.contains(td.persistentTaskId)) {
                 td.setLocked(true);
                 sLockedTasks.remove(td.persistentTaskId);
@@ -248,6 +247,8 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
                         holder.labelView.setTranslationX(translation);
                         holder.calloutLine.setAlpha(0f);
                         holder.calloutLine.setTranslationX(translation);
+                        holder.lockedIcon.setAlpha(0f);
+                        holder.lockedIcon.setTranslationX(translation);
                     } else {
                         holder.iconView.setAlpha(0f);
                         holder.iconView.setTranslationY(translation);
