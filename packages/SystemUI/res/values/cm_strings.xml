@@ -111,6 +111,7 @@
     <string name="screenshot_delete_confirmation">Screenshot deleted.</string>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- Content description for the add quick settings tile button. [CHAR LIMIT=NONE] -->
     <string name="accessibility_desc_add_quick_settings">Add Quick settings.</string>
 =======
@@ -120,4 +121,8 @@
     <string name="recent_title_txt">Recent Apps</string>
 >>>>>>> 3bae39f... New Recent UI
 >>>>>>> 9df8ab0... New RecentUI
+=======
+    <!-- Recent Apps -->
+    <string name="recent_title_txt">Recent Apps</string>
+>>>>>>> 1a9c393... fix conflict Sentence
 </resources>
