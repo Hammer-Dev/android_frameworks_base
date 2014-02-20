@@ -63,6 +63,4 @@
     <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
     <string name="app_halo_label_black">HALO 블랙리스트</string>
     <string name="app_halo_label_white">HALO 화이트리스트</string>
-    <!-- Recent Apps -->
-    <string name="recent_title_txt">최근 실행한 앱</string>
 </resources>
