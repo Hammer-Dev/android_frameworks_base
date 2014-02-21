@@ -9,6 +9,7 @@
 
         <ImageView
             android:id="@+id/recents_clear"
+	    android:marginbottom="7dp"
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
