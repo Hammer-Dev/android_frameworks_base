@@ -1024,10 +1024,6 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
             new PopupMenu(mContext, anchorView == null ? selectedView : anchorView);
         mPopup = popup;
         final ViewHolder viewHolder = (ViewHolder) selectedView.getTag();
-        if (viewHolder != null && viewHolder.taskDescription.isLocked() == true) {
-            MenuItem item = popup.getMenu().findItem(R.id.recent_lock_item);
-            item.setTitle(R.string.status_bar_recent_unlock_item_title);
-        }
 
 	int mHaloEnabled = (Settings.System.getInt(mContext.getContentResolver(), Settings.System.HALO_ENABLED, 0));
 
@@ -1037,6 +1033,11 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
 		popup.getMenuInflater().inflate(R.menu.recent_popup_menu, popup.getMenu());
 	}
 
+        if (viewHolder != null && viewHolder.taskDescription.isLocked() == true) {
+            MenuItem item = popup.getMenu().findItem(R.id.recent_lock_item);
+            item.setTitle(R.string.status_bar_recent_unlock_item_title);
+        }
+        
         final ContentResolver cr = mContext.getContentResolver();
         if (Settings.Secure.getInt(cr,
             Settings.Secure.DEVELOPMENT_SHORTCUT, 0) == 0) {
@@ -1102,6 +1103,11 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
                     } else {
                         throw new IllegalStateException("Oops, no tag on view " + selectedView);
                     }
+                } else if (item.getItemId() == R.id.recent_add_split_view && mHaloEnabled != 1) {
+                    // Either start a new activity in split view, or move the current task
+                    // to front, but resized
+                    ViewHolder holder = (ViewHolder)selectedView.getTag();
+                    openInSplitView(holder, -1);
                 } else if (item.getItemId() == R.id.recent_lock_item) {
                     if (viewHolder != null) {
                         if (viewHolder.taskDescription.isLocked()) {
@@ -1114,11 +1120,6 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
                     } else {
                         throw new IllegalStateException("Oops, no tag on view " + selectedView);
                     }
-                } else if (item.getItemId() == R.id.recent_add_split_view && mHaloEnabled != 1) {
-                    // Either start a new activity in split view, or move the current task
-                    // to front, but resized
-                    ViewHolder holder = (ViewHolder)selectedView.getTag();
-                    openInSplitView(holder, -1);
                 } else {
                     return false;
                 }
