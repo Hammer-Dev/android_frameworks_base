@@ -35,8 +35,8 @@
         android:clipChildren="false">
 
         <FrameLayout android:id="@+id/app_thumbnail"
-            android:layout_width="@dimen/status_bar_recents_thumbnail_width"
-            android:layout_height="@dimen/status_bar_recents_thumbnail_height"
+            android:layout_width="126dp"
+            android:layout_height="198dp"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/app_label"
             android:layout_marginLeft="@dimen/status_bar_recents_thumbnail_left_margin"
