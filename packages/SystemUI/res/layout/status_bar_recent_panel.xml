@@ -62,7 +62,7 @@
         android:id="@+id/recents_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-	android:layout_marginBottom="0dip"
+	android:layout_marginBottom="50dip"
         android:layout_gravity="bottom|center"     />
     </FrameLayout>
 
