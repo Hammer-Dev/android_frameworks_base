@@ -3066,106 +3066,6 @@ public final class Settings {
          */
         public static final String OVERSCROLL_WEIGHT = "overscroll_weight";
 
-        /**
-         * Display style of the status bar battery information
-         * 0: Display the battery an icon in portrait mode
-         * 2: Display the battery as a circle
-         * 4: Hide the battery status information
-         * 5: Display the battery an icon in landscape mode
-         * 6: Display the battery as plain text
-         * default: 0
-         * @hide
-         */
-        public static final String STATUS_BAR_BATTERY = "status_bar_battery";
-
-        /**
-         * Display percentage in text of the battery level on the status bar
-<<<<<<< HEAD
-=======
-         * HALO enabled, should default to 0 (no, HALO is disabled)
-         * @hide
-         */
-        public static final String HALO_ENABLED = "halo_enabled";
-
-        /**
-         * HALO, should default to 0 (no, do not show)
-         * @hide
-         */
-        public static final String HALO_ACTIVE = "halo_active";
-
-        /**
-         * HALO reversed?, should default to 1 (yes, reverse)
-         * @hide
-         */
-        public static final String HALO_REVERSED = "halo_reversed";
-
-        /**
-         * HALO hide?, should default to 0 (no, do not hide)
-         * @hide
-         */
-        public static final String HALO_HIDE = "halo_hide";
-
-        /**
-         * HALO pause activities?, defaults to 0 (no, do not pause) on devices which isLargeRAM() == true
-         * otherwise it defaults to 1 (yes, do pause)
-         * @hide
-         */
-        public static final String HALO_PAUSE = "halo_pause";
-
-        /**
-         * HALO size fraction, default is 1.0f (normal)
-         * @hide
-         */
-        public static final String HALO_SIZE = "halo_size";
-
-        /**
-         * HALO ninja?, should default to 0 (no, do not disappear when empty)
-         * @hide
-         */
-        public static final String HALO_NINJA = "halo_ninja";
-
-        /**
-         * HALO message box?, should default to 1 (yes, show message box on incoming notification)
-         * @hide
-         */
-        public static final String HALO_MSGBOX = "halo_msgbox";
-
-        /**
-         * HALO notificatoin count?, should default to 4 (both)
-         * @hide
-         */
-        public static final String HALO_NOTIFY_COUNT = "halo_notify_count";
-
-        /**
-         * HALO message box animation?, should default to 2 (flip animation)
-         * @hide
-         */
-        public static final String HALO_MSGBOX_ANIMATION = "halo_msgbox_animation";
-
-        /**
-         * HALO unlock ping?, should default to 0 (no, do not ping on unlock)
-         * @hide
-         */
-        public static final String HALO_UNLOCK_PING = "halo_unlock_ping";
-
-	/**
-	 * Weather
-	 * @hide
-	 */
-	public static final String USE_WEATHER = "use_weather";
-
-	/**
-	 * Sets the overscroller effect
-	 * @hide
-	 */
-        public static final String OVERSCROLL_EFFECT = "overscroll_effect";
-
-        /**
-         * Sets the overscroller weight (edge bounce effect on lists)
-         * @hide
-         */
-        public static final String OVERSCROLL_WEIGHT = "overscroll_weight";
-
 	/**
 	 * Determine friction of scrolling
 	 *
@@ -3182,12 +3082,18 @@ public final class Settings {
 
         /**
          * Display style of the status bar battery information
-         * 0: Display the stock battery information
-         * 1: Display cm battery percentage implementation / dont show stock icon
-         * 2: Display cm circle battery implementation without percentage
-         * 3: Display cm circle battery implementation with percentage
-         * 4: Hide the battery information
->>>>>>> 6608566... add scroll settings
+         * 0: Display the battery an icon in portrait mode
+         * 2: Display the battery as a circle
+         * 4: Hide the battery status information
+         * 5: Display the battery an icon in landscape mode
+         * 6: Display the battery as plain text
+         * default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY = "status_bar_battery";
+
+        /**
+         * Display percentage in text of the battery level on the status bar
          * default: 0
          * @hide
          */
