@@ -1888,11 +1888,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     final int FLIP_DURATION = (FLIP_DURATION_IN + FLIP_DURATION_OUT);
 
     Animator mScrollViewAnim, mFlipSettingsViewAnim, mNotificationButtonAnim,
-<<<<<<< HEAD
-        mSettingsButtonAnim, mClearButtonAnim, mRibbonViewAnim, mAddTileButtonAnim;
-=======
-        mSettingsButtonAnim, mHaloButtonAnim, mClearButtonAnim;
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
+        mSettingsButtonAnim, mHaloButtonAnim, mClearButtonAnim, mRibbonViewAnim, mAddTileButtonAnim;
 
     @Override
     public void animateExpandNotificationsPanel() {
@@ -2696,14 +2692,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         @Override
         public void tickerStarting() {
-<<<<<<< HEAD
-            mTicking = true;
-            mStatusBarContents.setVisibility(View.GONE);
-            mTickerView.setVisibility(View.VISIBLE);
-            mTickerView.startAnimation(loadAnim(com.android.internal.R.anim.push_up_in, null));
-            mStatusBarContents.startAnimation(loadAnim(com.android.internal.R.anim.push_up_out, null));
-=======
-
             if (!mHaloActive) {
                 mStatusBarContents.setVisibility(View.GONE);
                 mCenterClockLayout.setVisibility(View.GONE);
@@ -2714,19 +2702,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     loadAnim(com.android.internal.R.anim.push_up_out,
                     null));
             }
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
         }
 
         @Override
         public void tickerDone() {
-<<<<<<< HEAD
-            mStatusBarContents.setVisibility(View.VISIBLE);
-            mTickerView.setVisibility(View.GONE);
-            mStatusBarContents.startAnimation(loadAnim(com.android.internal.R.anim.push_down_in, null));
-            mTickerView.startAnimation(loadAnim(com.android.internal.R.anim.push_down_out,
-                        mTickingDoneListener));
-=======
-
             if (!mHaloActive) {
                 mStatusBarContents.setVisibility(View.VISIBLE);
                 mCenterClockLayout.setVisibility(View.VISIBLE);
@@ -2738,7 +2717,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     loadAnim(com.android.internal.R.anim.push_down_in,
                     null));
             }
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
         }
 
         public void tickerHalting() {

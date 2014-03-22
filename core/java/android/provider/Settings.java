@@ -2798,10 +2798,7 @@ public final class Settings {
          *
          * @hide
          */
-<<<<<<< HEAD
         public static final String PEOPLE_LOOKUP_PROVIDER = "people_lookup_provider";
-=======
-        public static final String REVERSE_LOOKUP_PROVIDER = "reverse_lookup_provider";
         
         /**   
          * HALO, should default to 0 (no, do not show)
@@ -2863,32 +2860,6 @@ public final class Settings {
          * @hide
          */
         public static final String HALO_UNLOCK_PING = "halo_unlock_ping";
-
-        /**
-         * Whether pie controls are enabled
-         * @hide
-         */
-        public static final String PIE_CONTROLS = "pie_controls";
-
-        /**
-         * Whether pie triggers on the left and right edge should be reduced if IME shows up.
-         * Default = 1 (enabled)
-         * @hide
-         */
-        public static final String PIE_IME_CONTROL = "pie_ime_control";
-
-        /**
-         * Whether dynamic menu button is shown or not or dynamic (default)
-         * @hide
-         */
-        public static final String PIE_MENU = "pie_menu";
-
-        /**
-         * Whether right edge PIE is mirrored or not
-         * @hide
-         */
-        public static final String PIE_MIRROR_RIGHT = "pie_mirror_right";
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
 
         /**
          * The reverse lookup provider

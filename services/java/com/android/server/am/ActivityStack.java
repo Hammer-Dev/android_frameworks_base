@@ -37,11 +37,8 @@ import static com.android.server.am.ActivityStackSupervisor.DEBUG_STATES;
 import static com.android.server.am.ActivityStackSupervisor.HOME_STACK_ID;
 
 import com.android.internal.os.BatteryStatsImpl;
-<<<<<<< HEAD
-import com.android.internal.util.Objects;
-=======
 import com.android.server.AttributeCache;
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
+import com.android.internal.util.Objects;
 import com.android.server.Watchdog;
 import com.android.server.am.ActivityManagerService.ItemMatcher;
 import com.android.server.wm.AppTransition;
@@ -78,11 +75,8 @@ import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.Trace;
 import android.os.UserHandle;
-<<<<<<< HEAD
-import android.text.TextUtils;
-=======
 import android.provider.Settings;
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
+import android.text.TextUtils;
 import android.util.EventLog;
 import android.util.Slog;
 import android.view.ContextThemeWrapper;

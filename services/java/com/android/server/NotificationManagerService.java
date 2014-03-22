@@ -80,12 +80,8 @@ import android.widget.Toast;
 import com.android.internal.R;
 
 import com.android.internal.notification.NotificationScorer;
-<<<<<<< HEAD
 import com.android.internal.util.cm.QuietHoursUtils;
-=======
-import com.android.internal.util.slim.QuietHoursHelper;
 import com.android.internal.util.FastXmlSerializer;
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;

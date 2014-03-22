@@ -32,11 +32,7 @@ import android.content.pm.IPackageDataObserver;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
-<<<<<<< HEAD
-=======
 import android.content.res.Resources;
-import android.content.ServiceConnection;
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
 import android.database.ContentObserver;
 import android.graphics.PixelFormat;
 import android.graphics.Bitmap;
@@ -90,11 +86,7 @@ import com.android.systemui.RecentsComponent;
 import com.android.systemui.SearchPanelView;
 import com.android.systemui.SystemUI;
 import com.android.systemui.statusbar.phone.KeyguardTouchDelegate;
-<<<<<<< HEAD
-=======
-import com.android.systemui.statusbar.phone.NavigationBarOverlay;
 import com.android.systemui.statusbar.halo.Halo;
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
 import com.android.systemui.statusbar.policy.NotificationRowLayout;
 
 import java.util.ArrayList;
@@ -196,9 +188,6 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     private RecentsComponent mRecents;
 
-<<<<<<< HEAD
-    private int mExpandedDesktopStyle = 0;
-=======
     public Ticker getTicker() {
         return mTicker;
     }
@@ -210,7 +199,6 @@ public abstract class BaseStatusBar extends SystemUI implements
     public NotificationData getNotificationData() {
         return mNotificationData;
     }
->>>>>>> 7af2e13... [2/2] Frameworks: HALO
 
     public IStatusBarService getStatusBarService() {
         return mBarService;
