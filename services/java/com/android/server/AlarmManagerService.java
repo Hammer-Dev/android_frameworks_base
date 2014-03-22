@@ -733,11 +733,7 @@ class AlarmManagerService extends IAlarmManager.Stub {
         if (mAlarmBatches.size() > 0) {
             final Batch firstWakeup = findFirstWakeupBatchLocked();
             final Batch firstBatch = mAlarmBatches.get(0);
-<<<<<<< HEAD
             final Batch firstRtcWakeup = findFirstRtcWakeupBatchLocked();
-=======
-	    final Batch firstRtcWakeup = findFirstRtcWakeupBatchLocked();
->>>>>>> 9a6a4c7... add one more RTCtype alarm for poweroff alarm
             if (firstWakeup != null && mNextWakeup != firstWakeup.start) {
                 mNextWakeup = firstWakeup.start;
                 setLocked(ELAPSED_REALTIME_WAKEUP, firstWakeup.start);
@@ -748,14 +744,10 @@ class AlarmManagerService extends IAlarmManager.Stub {
             }
             if (firstRtcWakeup != null && mNextRtcWakeup != firstRtcWakeup.start) {
                 mNextRtcWakeup = firstRtcWakeup.start;
-<<<<<<< HEAD
                 long when = firstRtcWakeup.getWhenByElapsedTime(mNextRtcWakeup);
                 if (when != 0) {
                     setLocked(RTC_POWEROFF_WAKEUP, when);
                 }
-=======
-                setLocked(RTC_POWEROFF_WAKEUP, firstRtcWakeup.start - SystemClock.elapsedRealtime());
->>>>>>> 9a6a4c7... add one more RTCtype alarm for poweroff alarm
             }
 
         }
@@ -1155,11 +1147,7 @@ class AlarmManagerService extends IAlarmManager.Stub {
         case RTC_WAKEUP : return "RTC_WAKEUP";
         case ELAPSED_REALTIME : return "ELAPSED";
         case ELAPSED_REALTIME_WAKEUP: return "ELAPSED_WAKEUP";
-<<<<<<< HEAD
         case RTC_POWEROFF_WAKEUP : return "RTC_POWEROFF_WAKEUP";
-=======
-	case RTC_POWEROFF_WAKEUP : return "RTC_POWEROFF_WAKEUP";
->>>>>>> 9a6a4c7... add one more RTCtype alarm for poweroff alarm
         default:
             break;
         }
