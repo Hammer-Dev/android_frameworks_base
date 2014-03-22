@@ -3067,18 +3067,16 @@ public final class Settings {
         public static final String OVERSCROLL_WEIGHT = "overscroll_weight";
 
 	/**
-	 * Determine friction of scrolling
-	 *
+	 * Able to change call volume steps (default is 5)
 	 * @hide
 	 */
-	public static final String SCROLL_FRICTION = "scroll_friction";
+	public static final String AUDIO_VOLUME_STEPS_CALL = "audio_volume_steps_call";
 
 	/**
-	 * Determine custom fling velocity
-	 *
+	 * Able to change media volume steps (default is 15)
 	 * @hide
 	 */
-	public static final String CUSTOM_FLING_VELOCITY = "custom_fling_velocity";
+	public static final String AUDIO_VOLUME_STEPS_MEDIA = "audio_volume_steps_media";
 
         /**
          * Display style of the status bar battery information
@@ -3109,6 +3107,12 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_CLOCK = "status_bar_clock";
+
+	/**
+	 * Display second in the Clock
+	 * @hide
+	 */
+	public static final String CLOCK_USE_SECOND = "clock_use_second";
 
         /**
          * Whether to show the signal text or signal bars.

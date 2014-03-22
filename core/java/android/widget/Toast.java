@@ -21,6 +21,7 @@ import android.app.ITransientNotification;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -243,9 +244,10 @@ public class Toast {
         LayoutInflater inflate = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflate.inflate(com.android.internal.R.layout.transient_notification, null);
+
         TextView tv = (TextView)v.findViewById(com.android.internal.R.id.message);
         tv.setText(text);
-        
+
         result.mNextView = v;
         result.mDuration = duration;
 

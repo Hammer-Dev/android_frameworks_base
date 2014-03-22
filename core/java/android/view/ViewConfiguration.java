@@ -181,7 +181,7 @@ public class ViewConfiguration {
     /**
      * Maximum velocity to initiate a fling, as measured in dips per second
      */
-    private static int MAXIMUM_FLING_VELOCITY;
+    private static final int MAXIMUM_FLING_VELOCITY = 8000;
 
     /**
      * Delay before dispatching a recurring accessibility event in milliseconds.
@@ -201,7 +201,7 @@ public class ViewConfiguration {
     /**
      * The coefficient of friction applied to flings/scrolls.
      */
-    private static float SCROLL_FRICTION;
+    private static final float SCROLL_FRICTION = 0.015f;
 
     /**
      * Max distance in dips to overscroll for edge effects
@@ -264,8 +264,6 @@ public class ViewConfiguration {
      * @see android.util.DisplayMetrics
      */
     private ViewConfiguration(Context context) {
-	SCROLL_FRICTION = Settings.System.getFloat(context.getContentResolver(), Settings.System.SCROLL_FRICTION, 0.014f);
-	MAXIMUM_FLING_VELOCITY = Settings.System.getInt(context.getContentResolver(), Settings.System.CUSTOM_FLING_VELOCITY, 8000);
         final Resources res = context.getResources();
         final DisplayMetrics metrics = res.getDisplayMetrics();
         final Configuration config = res.getConfiguration();

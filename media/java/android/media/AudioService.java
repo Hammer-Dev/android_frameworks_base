@@ -486,10 +486,43 @@ public class AudioService extends IAudioService.Stub {
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         mHasVibrator = vibrator == null ? false : vibrator.hasVibrator();
 
-       // Intialized volume
-        MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL] = SystemProperties.getInt(
-            "ro.config.vc_call_vol_steps",
-           MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL]);
+       // Call
+	MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL] = Settings.System.getInt(mContentResolver, Settings.System.AUDIO_VOLUME_STEPS_CALL, 5);
+
+	if (MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL] != 5) {
+	    switch (MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL]) {
+		case 7:
+		    MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL] = Settings.System.getInt(mContentResolver, Settings.System.AUDIO_VOLUME_STEPS_CALL, 7);
+		    break;
+
+		case 10:
+		    MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL] = Settings.System.getInt(mContentResolver, Settings.System.AUDIO_VOLUME_STEPS_CALL, 10);
+		    break;
+
+		case 15:
+		    MAX_STREAM_VOLUME[AudioSystem.STREAM_VOICE_CALL] = Settings.System.getInt(mContentResolver, Settings.System.AUDIO_VOLUME_STEPS_CALL, 15);
+		    break;
+	    }
+	}
+
+       // Media
+	MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC] = Settings.System.getInt(mContentResolver, Settings.System.AUDIO_VOLUME_STEPS_MEDIA, 15);
+
+	if (MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC] != 15) {
+	    switch (MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC]) {
+		case 20:
+		    MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC] = Settings.System.getInt(mContentResolver, Settings.System.AUDIO_VOLUME_STEPS_MEDIA, 20);
+		    break;
+
+		case 25:
+		    MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC] = Settings.System.getInt(mContentResolver, Settings.System.AUDIO_VOLUME_STEPS_MEDIA, 25);
+		    break;
+
+		case 30:
+		    MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC] = Settings.System.getInt(mContentResolver, Settings.System.AUDIO_VOLUME_STEPS_MEDIA, 30);
+		    break;
+	    }
+	}
 
         sSoundEffectVolumeDb = context.getResources().getInteger(
                 com.android.internal.R.integer.config_soundEffectVolumeDb);
