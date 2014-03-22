@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/status_bottom_title"
     android:layout_width="match_parent"
@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/recents_clear"
 	    android:layout_marginBottom="17dp"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="140dp"
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
