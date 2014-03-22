@@ -68,6 +68,9 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
 
     private static final int AM_PM_STYLE = AM_PM_STYLE_GONE;
 
+    private final Handler handler = new Handler();
+    TimerTask second;
+
     public Clock(Context context) {
         this(context, null);
     }
@@ -299,4 +302,3 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
         }
     }
 }
-
