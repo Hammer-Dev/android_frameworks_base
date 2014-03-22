@@ -48,11 +48,11 @@ import com.android.systemui.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.android.systemui.statusbar.policy.BatteryController.BatteryStateChangeCallback;
+import com.android.systemui.statusbar.policy.BatteryController.BatteryStateChangeCallback2;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.NetworkSignalChangedCallback;
 
-public class HaloProperties extends FrameLayout implements BatteryStateChangeCallback, NetworkSignalChangedCallback {
+public class HaloProperties extends FrameLayout implements BatteryStateChangeCallback2, NetworkSignalChangedCallback {
 
     public enum Overlay {
         NONE,

@@ -43,6 +43,10 @@ public class BatteryController extends BroadcastReceiver {
         public void onBatteryMeterShowPercent(boolean showPercent);
     }
 
+    public interface BatteryStateChangeCallback2 {
+        public void onBatteryLevelChanged(boolean present, int level, boolean pluggedIn, int status);
+    }
+
     public BatteryController(Context context) {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_BATTERY_CHANGED);
