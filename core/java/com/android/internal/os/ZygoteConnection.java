@@ -221,7 +221,6 @@ class ZygoteConnection {
             }
 
             /**
-<<<<<<< HEAD
              * In order to avoid leaking descriptors to the Zygote child,
              * the native code must close the two Zygote socket descriptors
              * in the child process before it switches from Zygote-root to
@@ -232,18 +231,6 @@ class ZygoteConnection {
              * descriptors are released via a dup2() call which closes
              * the socket and substitutes an open descriptor to /dev/null.
              */
-=======
-* In order to avoid leaking descriptors to the Zygote child,
-* the native code must close the two Zygote socket descriptors
-* in the child process before it switches from Zygote-root to
-* the UID and privileges of the application being launched.
-*
-* In order to avoid "bad file descriptor" errors when the
-* two LocalSocket objects are closed, the Posix file
-* descriptors are released via a dup2() call which closes
-* the socket and substitutes an open descriptor to /dev/null.
-*/
->>>>>>> 09e9588... Finish fixing Zygote descriptor leakage problem
 
             int [] fdsToClose = { -1, -1 };
 
