@@ -189,6 +189,8 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     private RecentsComponent mRecents;
 
+    private int mExpandedDesktopStyle = 0;
+    
     public Ticker getTicker() {
         return mTicker;
     }
