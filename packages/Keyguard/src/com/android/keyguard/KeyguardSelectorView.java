@@ -471,6 +471,31 @@ public class KeyguardSelectorView extends LinearLayout implements KeyguardSecuri
         KeyguardSecurityViewHelper.
                 hideBouncer(mSecurityMessageDisplay, mFadeView, mBouncerFrame, duration);
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mContext.unregisterReceiver(mUnlockReceiver);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        mContext.registerReceiver(mUnlockReceiver, mUnlockFilter);
+    }
+    public class UnlockReceiver extends BroadcastReceiver {
+        public static final String ACTION_UNLOCK_RECEIVER = "com.android.lockscreen.ACTION_UNLOCK_RECEIVER";
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(ACTION_UNLOCK_RECEIVER)) {
+                mCallback.userActivity(0);
+                mCallback.dismiss(false);
+            }
+        }
+    }
     public void updateLockscreenBattery(KeyguardUpdateMonitor.BatteryStatus status) {
         if (Settings.System.getIntForUser(
                 mContext.getContentResolver(),
@@ -493,4 +518,5 @@ public class KeyguardSelectorView extends LinearLayout implements KeyguardSecuri
             mGlowPadView.setArc(0, 0);
         }
     }
+>>>>>>> 046a924... [1/2] Add battery level around unlock ring
 }
