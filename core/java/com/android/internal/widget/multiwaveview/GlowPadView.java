@@ -30,15 +30,10 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.graphics.Paint;
-import android.graphics.Paint.Align;
-import android.graphics.Path;
-import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.Settings;
-import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -50,7 +45,6 @@ import android.view.accessibility.AccessibilityManager;
 
 import com.android.internal.R;
 
-import java.lang.Math;
 import java.util.ArrayList;
 
 /**
@@ -68,27 +62,6 @@ public class GlowPadView extends View {
     private static final int STATE_SNAP = 4;
     private static final int STATE_FINISH = 5;
 
-     /**
-      * @hide
-      */
-     public final static String ICON_RESOURCE = "icon_resource";
-
-     /**
-      * @hide
-      */
-     public final static String ICON_PACKAGE = "icon_package";
-
-     /**
-      * @hide
-      */
-     public final static String ICON_FILE = "icon_file";
-
-     /**
-      *
-      * @hide
-      */
-     public final static String EMPTY_TARGET = "empty";
-
     // Animation properties.
     private static final float SNAP_MARGIN_DEFAULT = 20.0f; // distance to ring before we snap to it
 
@@ -98,7 +71,6 @@ public class GlowPadView extends View {
         public void onGrabbed(View v, int handle);
         public void onReleased(View v, int handle);
         public void onTrigger(View v, int target);
-        public void onTargetChange(View v, int target);
         public void onGrabbedStateChange(View v, int handle);
         public void onFinishFinalAnimation();
     }
@@ -120,8 +92,6 @@ public class GlowPadView extends View {
     private static final float TARGET_SCALE_COLLAPSED = 0.8f;
     private static final float RING_SCALE_EXPANDED = 1.0f;
     private static final float RING_SCALE_COLLAPSED = 0.5f;
-    private static final float HANDLE_TEXT_RADIUS = 120f;
-    private static final float MAX_TEXT_ARC_RADIANS = (float) (270.0 / 170.0 * Math.PI);
 
     private ArrayList<TargetDrawable> mTargetDrawables = new ArrayList<TargetDrawable>();
     private AnimationBundle mWaveAnimations = new AnimationBundle();
@@ -145,12 +115,6 @@ public class GlowPadView extends View {
     private int mMaxTargetWidth;
     private float mRingScaleFactor = 1f;
     private boolean mAllowScaling;
-    private boolean mDrawOuterRing = true;
-
-    private Paint mPaintText;
-    private String mHandleText = "";
-    private int mTextRadius;
-    private float mMaxTextArcLength;
 
     private float mOuterRadius = 0.0f;
     private float mSnapMargin = 0.0f;
@@ -158,10 +122,6 @@ public class GlowPadView extends View {
     private boolean mMagneticTargets = false;
     private boolean mDragging;
     private int mNewTargetResources;
-
-    private Paint mArcPaint;
-    private RectF mArcRect;
-    private float mArcAngle = 0f;
     private ArrayList<TargetDrawable> mNewTargetDrawables;
 
     private class AnimationBundle extends ArrayList<Tweener> {
@@ -318,24 +278,6 @@ public class GlowPadView extends View {
         mPointCloud = new PointCloud(pointDrawable);
         mPointCloud.makePointCloud(mInnerRadius, mOuterRadius);
         mPointCloud.glowManager.setRadius(mGlowRadius);
-
-        mArcPaint = new Paint();
-        mArcPaint.setStrokeWidth(10.0f);
-        mArcPaint.setStyle(Paint.Style.STROKE);
-        mArcRect = new RectF(mHandleDrawable.getPositionX() - mHandleDrawable.getWidth()/2,
-                                 mHandleDrawable.getPositionY() - mHandleDrawable.getHeight()/2,
-                                 mHandleDrawable.getPositionX() + mHandleDrawable.getWidth()/2,
-                                 mHandleDrawable.getPositionY() + mHandleDrawable.getHeight()/2);
-
-        mPaintText = new Paint();
-        mPaintText.setAntiAlias(true);
-        mPaintText.setColor(res.getColor(android.R.color.white));
-        mPaintText.setTextAlign(Align.CENTER);
-        mPaintText.setStyle(Paint.Style.FILL_AND_STROKE);
-        mPaintText.setFakeBoldText(true);
-        mPaintText.setTextSize(res.getDimensionPixelSize(R.dimen.glowpad_notification_font_size));
-        mTextRadius = res.getDimensionPixelSize(R.dimen.glowpad_notification_text_radius);
-        mMaxTextArcLength = mTextRadius * MAX_TEXT_ARC_RADIANS;
     }
 
     private int getResourceId(TypedArray a, int id) {
@@ -424,7 +366,6 @@ public class GlowPadView extends View {
                 startBackgroundAnimation(0, 0.0f);
                 mHandleDrawable.setState(TargetDrawable.STATE_INACTIVE);
                 mHandleDrawable.setAlpha(1.0f);
-                mPaintText.setAlpha(255);
                 break;
 
             case STATE_START:
@@ -432,7 +373,6 @@ public class GlowPadView extends View {
                 break;
 
             case STATE_FIRST_TOUCH:
-                mPaintText.setAlpha(0);
                 mHandleDrawable.setAlpha(0.0f);
                 deactivateTargets();
                 showTargets(true);
@@ -444,14 +384,12 @@ public class GlowPadView extends View {
                 break;
 
             case STATE_TRACKING:
-                mPaintText.setAlpha(0);
                 mHandleDrawable.setAlpha(0.0f);
                 showGlow(REVEAL_GLOW_DURATION , REVEAL_GLOW_DELAY, 1.0f, null);
                 break;
 
             case STATE_SNAP:
                 // TODO: Add transition states (see list_selector_background_transition.xml)
-                mPaintText.setAlpha(0);
                 mHandleDrawable.setAlpha(0.0f);
                 showGlow(REVEAL_GLOW_DURATION , REVEAL_GLOW_DELAY, 0.0f, null);
                 break;
@@ -495,9 +433,6 @@ public class GlowPadView extends View {
             target.setState(TargetDrawable.STATE_INACTIVE);
         }
         mActiveTarget = -1;
-        if (mOnTriggerListener != null) {
-             mOnTriggerListener.onTargetChange(this, mActiveTarget);
-        }
     }
 
     /**
@@ -947,7 +882,7 @@ public class GlowPadView extends View {
         if (DEBUG && mDragging) Log.v(TAG, "** Handle CANCEL");
 
         // Drop the active target if canceled.
-        mActiveTarget = -1;
+        mActiveTarget = -1; 
 
         int actionIndex = event.findPointerIndex(mPointerId);
         actionIndex = actionIndex == -1 ? 0 : actionIndex;
@@ -1042,7 +977,6 @@ public class GlowPadView extends View {
                 TargetDrawable target = targets.get(activeTarget);
                 if (target.hasState(TargetDrawable.STATE_FOCUSED)) {
                     target.setState(TargetDrawable.STATE_FOCUSED);
-                    vibrate();
                 }
                 if (mMagneticTargets) {
                     updateTargetPosition(activeTarget, mWaveCenterX, mWaveCenterY, activeAngle);
@@ -1054,9 +988,6 @@ public class GlowPadView extends View {
             }
         }
         mActiveTarget = activeTarget;
-        if (mOnTriggerListener !=null) {
-            mOnTriggerListener.onTargetChange(this, mActiveTarget);
-        }
     }
 
     @Override
@@ -1313,7 +1244,7 @@ public class GlowPadView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         mPointCloud.draw(canvas);
-        if (mDrawOuterRing) mOuterRing.draw(canvas);
+        mOuterRing.draw(canvas);
         final int ntargets = mTargetDrawables.size();
         for (int i = 0; i < ntargets; i++) {
             TargetDrawable target = mTargetDrawables.get(i);
@@ -1322,41 +1253,6 @@ public class GlowPadView extends View {
             }
         }
         mHandleDrawable.draw(canvas);
-
-        if (mArcAngle > 0 && mHandleDrawable.getAlpha() > 0) {
-            mArcRect.set(mHandleDrawable.getPositionX() - mHandleDrawable.getWidth()/3,
-                    mHandleDrawable.getPositionY() - mHandleDrawable.getHeight()/3,
-                    mHandleDrawable.getPositionX() + mHandleDrawable.getWidth()/3,
-                    mHandleDrawable.getPositionY() + mHandleDrawable.getHeight()/3);
-
-            canvas.drawArc(mArcRect, -90, mArcAngle, false, mArcPaint);
-        }
-        if (!TextUtils.isEmpty(mHandleText) && mPaintText.getAlpha() != 0) {
-            float x = mHandleDrawable.getPositionX();
-            float y = mHandleDrawable.getPositionY();
-            Path circle = new Path();
-            circle.addCircle(x, y, mTextRadius, Path.Direction.CW);
-            canvas.rotate(90f, x, y);
-            canvas.drawTextOnPath(mHandleText, circle, 0, 0, mPaintText);
-        }
-    }
-
-    public void setHandleDrawable(TargetDrawable d) {
-        float x = mHandleDrawable.getPositionX();
-        float y = mHandleDrawable.getPositionY();
-        mHandleDrawable = new TargetDrawable(d);
-        mHandleDrawable.setPositionX(x);
-        mHandleDrawable.setPositionY(y);
-    }
-
-    public void setHandleText(String text) {
-        mHandleText = TextUtils.ellipsize(
-                text, new TextPaint(mPaintText), mMaxTextArcLength,
-                TextUtils.TruncateAt.END).toString();
-    }
-
-    public void setDrawOuterRing(boolean drawOuterRing) {
-        mDrawOuterRing = drawOuterRing;
     }
 
     public void setOnTriggerListener(OnTriggerListener listener) {
@@ -1402,7 +1298,7 @@ public class GlowPadView extends View {
         if (mTargetDescriptionsResourceId == 0) {
             return null;
         }
-        if (mTargetDescriptions == null || mTargetDescriptions.isEmpty() || index >= mTargetDescriptions.size()) {
+        if (mTargetDescriptions == null || mTargetDescriptions.isEmpty()) {
             mTargetDescriptions = loadDescriptions(mTargetDescriptionsResourceId);
             if (mTargetDrawables.size() != mTargetDescriptions.size()) {
                 if (DEBUG) Log.v(TAG, "The number of target drawables must be"
@@ -1417,7 +1313,7 @@ public class GlowPadView extends View {
         if (mDirectionDescriptionsResourceId == 0) {
             return null;
         }
-        if (mDirectionDescriptions == null || mDirectionDescriptions.isEmpty() || index >= mTargetDescriptions.size()) {
+        if (mDirectionDescriptions == null || mDirectionDescriptions.isEmpty()) {
             mDirectionDescriptions = loadDescriptions(mDirectionDescriptionsResourceId);
             if (mTargetDrawables.size() != mDirectionDescriptions.size()) {
                 if (DEBUG) Log.v(TAG, "The number of target drawables must be"
@@ -1535,10 +1431,6 @@ public class GlowPadView extends View {
         return replaced;
     }
 
-    public void setArc(float angle, int color) {
-        mArcAngle = angle;
-        mArcPaint.setColor(color);
-    }
     public void setHandleDrawable(Drawable handle) {
         Resources res = mContext.getResources();
         if (handle != null) {
