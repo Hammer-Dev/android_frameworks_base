@@ -3131,6 +3131,12 @@ public final class Settings {
          */
         public static final String STATUS_BAR_COLLAPSE_ON_DISMISS = "status_bar_collapse_on_dismiss";
 
+        /**
+         * Whether or not to show circle battery around the lockscreen ring
+         * @hide
+         */
+        public static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
+
         /** @hide */
         public static final int STATUS_BAR_COLLAPSE_NEVER = 0;
         /** @hide */
