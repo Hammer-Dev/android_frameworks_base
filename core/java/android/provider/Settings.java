@@ -3066,18 +3066,6 @@ public final class Settings {
          */
         public static final String OVERSCROLL_WEIGHT = "overscroll_weight";
 
-	/**
-	 * Able to change call volume steps (default is 5)
-	 * @hide
-	 */
-	public static final String AUDIO_VOLUME_STEPS_CALL = "audio_volume_steps_call";
-
-	/**
-	 * Able to change media volume steps (default is 15)
-	 * @hide
-	 */
-	public static final String AUDIO_VOLUME_STEPS_MEDIA = "audio_volume_steps_media";
-
         /**
          * Display style of the status bar battery information
          * 0: Display the battery an icon in portrait mode
