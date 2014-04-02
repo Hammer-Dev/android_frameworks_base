@@ -39,7 +39,11 @@
     <dimen name="status_bar_recents_app_icon_top_margin">8dp</dimen>
 
     <!-- The fixed height of each tile -->
+<<<<<<< HEAD
     <dimen name="quick_settings_cell_height">100dp</dimen>
 
     <dimen name="halo_content_max_width">350dp</dimen>
+=======
+    <dimen name="quick_settings_cell_height">110dp</dimen>
+>>>>>>> 88e1b16... systemui: fix qs tiles layout height in landscape mode
 </resources>
