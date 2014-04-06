@@ -666,18 +666,11 @@ public class KeyguardViewManager {
         if (isSeeThroughEnabled()) {
             return;
         } else {
-<<<<<<< HEAD
-            mWindowLayoutParams.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
-        }
-        mWindowLayoutParams.format = show ? PixelFormat.TRANSLUCENT : PixelFormat.OPAQUE;
-=======
             if (show) {
                 mWindowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
             } else {
                 mWindowLayoutParams.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
             }
->>>>>>> 4ac39f6... Lockscreen: See through (1/2)
-
             mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
         }
 	// end
