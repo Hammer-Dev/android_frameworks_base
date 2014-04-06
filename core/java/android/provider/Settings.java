@@ -3384,12 +3384,6 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_NOTIFICATIONS_EXCLUDED_APPS = "lockscreen_notifications_excluded_apps";
 
-         /**
-         * Allows blurring the lockscreen background
-         * @hide
-         */
-        public static final String LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
-
         /**
          * Whether to remove the vibration from outgoing notifications during quiet hours.
          * @hide
@@ -3701,6 +3695,141 @@ public final class Settings {
          */
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
 
+<<<<<<< HEAD
+=======
+       /**
+	*
+	* @hide
+	*/
+        public static final String SYSTEMUI_NAVRING_AMOUNT = "systemui_navring_amount";
+
+       /**
+	*
+	* @hide
+	*/
+        public static final String SYSTEMUI_NAVRING_LONG_ENABLE = "systemui_navring_long_enable";
+
+        /**
+	* Custom navring actions
+	*
+	* @hide
+	*/
+        public static final String[] SYSTEMUI_NAVRING = new String[] {
+                "navring_0",
+                "navring_1",
+                "navring_2",
+                "navring_3",
+                "navring_4",
+        };
+
+        /**
+	* Custom navring long press actions
+	*
+	* @hide
+	*/
+        public static final String[] SYSTEMUI_NAVRING_LONG = new String[] {
+                "navring_long_0",
+                "navring_long_1",
+                "navring_long_2",
+                "navring_long_3",
+                "navring_long_4",
+        };
+
+        /**
+	* Custom navring icons
+	*
+	* @hide
+	*/
+        public static final String[] SYSTEMUI_NAVRING_ICON = new String[] {
+                "navring_icon_0",
+                "navring_icon_1",
+                "navring_icon_2",
+                "navring_icon_3",
+                "navring_icon_4",
+        };
+
+        /**
+	* Wether navigation bar is enabled or not
+	* @hide
+	*/
+        public static final String NAVIGATION_BAR_SHOW = "navigation_bar_show";
+
+        /**
+	* Navigation bar height when it is on protrait
+	* @hide
+	*/
+        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
+        /**
+	* Navigation bar height when it is on landscape at the right
+	* @hide
+	*/
+        public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
+
+
+        /**
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_BUTTONS = "navigation_bar_buttons";
+
+	/**
+	* Electronic beam animation mode
+	* 0 = off,
+	* 1 = always horizontal,
+	* 2 = always vertical,
+	* 3 = dependent on orientation
+	* @hide
+	*/
+        public static final String SYSTEM_POWER_CRT_MODE = "system_power_crt_mode";
+
+         /**
+         * Allows blurring the lockscreen background
+         * @hide
+         */
+        public static final String LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
+
+        /**
+         * Whether to show the battery bar
+         * @hide
+         */
+        public static final String STATUSBAR_BATTERY_BAR = "statusbar_battery_bar";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_BATTERY_BAR_COLOR = "statusbar_battery_bar_color";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_BATTERY_BAR_THICKNESS = "statusbar_battery_bar_thickness";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_BATTERY_BAR_STYLE = "statusbar_battery_bar_style";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_BATTERY_BAR_ANIMATE = "statusbar_battery_bar_animate";
+
+        /**
+         * ListView Animations
+         * 0 == None
+         * 1 == Wave (Left)
+         * 2 == Wave (Right)
+         * 3 == Scale
+         * 4 == Alpha
+         * 5 == Stack (Top)
+         * 6 == Stack (Bottom)
+         * 7 == Translate (Left)
+         * 8 == Translate (Right)
+         * @hide
+         */
+        public static final String LISTVIEW_ANIMATION = "listview_animation";
+
+>>>>>>> 94a6531... Reimplement "[1/2] Lockscreen Notifications"
         /**
          * Whether or not to show circle battery around the lockscreen ring
          * @hide
