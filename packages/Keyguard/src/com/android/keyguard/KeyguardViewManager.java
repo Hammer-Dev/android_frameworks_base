@@ -95,10 +95,12 @@ public class KeyguardViewManager {
     private boolean mScreenOn = false;
     private LockPatternUtils mLockPatternUtils;
 
+<<<<<<< HEAD
     private boolean mUnlockKeyDown = false;
-
+=======
     // Lockscreen blur
     private Bitmap mBlurredImage = null;
+>>>>>>> d503697... Frameworks: Lockscreen Blur
 
     private KeyguardUpdateMonitorCallback mBackgroundChanger = new KeyguardUpdateMonitorCallback() {
         @Override
@@ -126,6 +128,10 @@ public class KeyguardViewManager {
         mViewManager = viewManager;
         mViewMediatorCallback = callback;
         mLockPatternUtils = lockPatternUtils;
+<<<<<<< HEAD
+=======
+
+>>>>>>> d503697... Frameworks: Lockscreen Blur
     }
 
     /**
@@ -309,8 +315,12 @@ public class KeyguardViewManager {
             if (bgAspect > vAspect) {
                 background.setBounds(0, 0, (int) (vHeight * bgAspect), vHeight);
             } else {
-                background.setBounds(0, 0, vWidth,
+<<<<<<< HEAD
+                background.setBounds(0, 0, vWidth, (int) (vWidth / bgAspect));
+=======
+                mCustomBackground.setBounds(0, 0, vWidth,
                         (int) (vWidth * (vAspect >= 1 ? bgAspect : (1 / bgAspect))));
+>>>>>>> d503697... Frameworks: Lockscreen Blur
             }
         }
 
@@ -638,7 +648,10 @@ public class KeyguardViewManager {
         } else {
             mWindowLayoutParams.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
         }
+<<<<<<< HEAD
         mWindowLayoutParams.format = show ? PixelFormat.TRANSLUCENT : PixelFormat.OPAQUE;
+=======
+>>>>>>> d503697... Frameworks: Lockscreen Blur
 
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
     }
