@@ -20,10 +20,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.TransitionDrawable;
-<<<<<<< HEAD
-=======
-
->>>>>>> 94a6531... Reimplement "[1/2] Lockscreen Notifications"
 import com.android.internal.policy.IKeyguardShowCallback;
 import com.android.internal.widget.LockPatternUtils;
 
@@ -324,42 +320,12 @@ public class KeyguardViewManager {
         }
 
         public void setCustomBackground(Drawable d) {
-<<<<<<< HEAD
-            if (!ActivityManager.isHighEndGfx() || !mScreenOn) {
-=======
             if (!ActivityManager.isHighEndGfx()) {
->>>>>>> 94a6531... Reimplement "[1/2] Lockscreen Notifications"
                 mCustomBackground = d;
                 if (d != null) {
                     d.setColorFilter(BACKGROUND_COLOR, PorterDuff.Mode.SRC_OVER);
                 }
                 computeCustomBackgroundBounds(mCustomBackground);
-<<<<<<< HEAD
-                setBackground(mBackgroundDrawable);
-            } else {
-                Drawable old = mCustomBackground;
-                if (old == null && d == null) {
-                    return;
-                }
-                boolean newIsNull = false;
-                if (old == null) {
-                    old = new ColorDrawable(BACKGROUND_COLOR);
-                }
-                if (d == null) {
-                    d = new ColorDrawable(BACKGROUND_COLOR);
-                    newIsNull = true;
-                } else {
-                    d.setColorFilter(BACKGROUND_COLOR, PorterDuff.Mode.SRC_OVER);
-                }
-                computeCustomBackgroundBounds(d);
-                Bitmap b = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-                Canvas c = new Canvas(b);
-                drawToCanvas(c, d);
-
-                Drawable dd = new BitmapDrawable(mContext.getResources(), b);
-
-                mTransitionBackground = new TransitionDrawable(new Drawable[] {old, dd});
-=======
                 invalidate();
             } else {
                 if (d == null) {
@@ -374,6 +340,7 @@ public class KeyguardViewManager {
                 }
 
                 d.setColorFilter(BACKGROUND_COLOR, PorterDuff.Mode.SRC_OVER);
+
                 mCustomBackground = d;
                 computeCustomBackgroundBounds(d);
                 Bitmap b = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
@@ -383,22 +350,14 @@ public class KeyguardViewManager {
                 Drawable dd = new BitmapDrawable(b);
 
                 mTransitionBackground = new TransitionDrawable(new Drawable[]{old, dd});
->>>>>>> 94a6531... Reimplement "[1/2] Lockscreen Notifications"
                 mTransitionBackground.setCrossFadeEnabled(true);
                 setBackground(mTransitionBackground);
 
                 mTransitionBackground.startTransition(200);
 
-<<<<<<< HEAD
-                mCustomBackground = newIsNull ? null : dd;
-
-            }
-            invalidate();
-=======
                 mCustomBackground = dd;
                 invalidate();
-            }
->>>>>>> 94a6531... Reimplement "[1/2] Lockscreen Notifications"
+             }
         }
 
         private void computeCustomBackgroundBounds(Drawable background) {
@@ -407,10 +366,6 @@ public class KeyguardViewManager {
 
             final int bgWidth = background.getIntrinsicWidth();
             final int bgHeight = background.getIntrinsicHeight();
-<<<<<<< HEAD
-=======
-
->>>>>>> 94a6531... Reimplement "[1/2] Lockscreen Notifications"
             final int vWidth = getWidth();
             final int vHeight = getHeight();
 
@@ -459,14 +414,11 @@ public class KeyguardViewManager {
                 if (action == KeyEvent.ACTION_DOWN) {
                     if (handleKeyDown(keyCode, event)) {
                         return true;
-<<<<<<< HEAD
                     }
                 } else if (action == KeyEvent.ACTION_UP) {
                     if (handleKeyUp(keyCode, event)) {
                         return true;
                     }
-=======
->>>>>>> 94a6531... Reimplement "[1/2] Lockscreen Notifications"
                 }
                 // Always process media keys, regardless of focus
                 if (mKeyguardView.dispatchKeyEvent(event)) {
