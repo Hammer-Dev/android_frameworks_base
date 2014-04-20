@@ -50,4 +50,7 @@
     <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
     <string name="reboot_confirm" product="tablet">디바이스가 재부팅됩니다.</string>
     <string name="reboot_confirm" product="default">디바이스가 재부팅됩니다.</string>
+    <!-- Label for item that reboots the device in phone options dialog -->
+    <string name="global_action_reboot">디바이스 재부팅</string>
+
 </resources>
