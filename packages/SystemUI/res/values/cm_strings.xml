@@ -118,8 +118,14 @@
 =======
 
     <!-- Sim Slot number -->
+<<<<<<< HEAD
     <string name="sim_slot">1</string>
     <string name="sim_slot_2">2</string>
     <string name="sim_slot_3">3</string>
 >>>>>>> ff3180f... MSIM: Rework statusbar, order signal clusters to match settings
+=======
+    <string name="sim_slot" translatable="false">1</string>
+    <string name="sim_slot_2" translatable="false">2</string>
+    <string name="sim_slot_3" translatable="false">3</string>
+>>>>>>> 93a7021... SystemUI: Don't try to translate SIM slot numbers
 </resources>
