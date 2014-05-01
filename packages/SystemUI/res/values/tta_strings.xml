@@ -44,4 +44,8 @@ wn on the screen). [CHAR LIMIT=NONE] -->
     <string name="status_bar_recent_lock_item_title">Lock</string>
     <!-- Title shown in recents popup for unlocking an app from being cleared -->
     <string name="status_bar_recent_unlock_item_title">Unlock</string>
+
+    <!-- Recent Apps -->
+    <string name="recent_title_txt">Recent Apps</string>
+
 </resources>
