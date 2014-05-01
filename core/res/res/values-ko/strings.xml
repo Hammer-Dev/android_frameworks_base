@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 /* //device/apps/common/assets/res/any/strings.xml
 **
@@ -146,13 +146,13 @@
     <string name="turn_on_radio" msgid="3912793092339962371">"무선 사용"</string>
     <string name="turn_off_radio" msgid="8198784949987062346">"무선 끄기"</string>
     <string name="screen_lock" msgid="799094655496098153">"화면 잠금"</string>
-    <string name="power_off" msgid="4266614107412865048">"종료"</string>
+    <string name="power_off" msgid="4266614107412865048">"디바이스 종료"</string>
     <string name="silent_mode_silent" msgid="319298163018473078">"벨소리가 무음입니다."</string>
     <string name="silent_mode_vibrate" msgid="7072043388581551395">"벨소리가 진동입니다."</string>
     <string name="silent_mode_ring" msgid="8592241816194074353">"벨소리가 켜져 있습니다."</string>
-    <string name="shutdown_progress" msgid="2281079257329981203">"종료 중..."</string>
-    <string name="shutdown_confirm" product="tablet" msgid="3385745179555731470">"태블릿이 종료됩니다."</string>
-    <string name="shutdown_confirm" product="default" msgid="649792175242821353">"휴대전화가 종료됩니다."</string>
+    <string name="shutdown_progress" msgid="2281079257329981203">"디바이스를 종료합니다."</string>
+    <string name="shutdown_confirm" product="tablet" msgid="3385745179555731470">"디바이스가 종료됩니다."</string>
+    <string name="shutdown_confirm" product="default" msgid="649792175242821353">"디바이스가 종료됩니다."</string>
     <string name="shutdown_confirm_question" msgid="2906544768881136183">"종료하시겠습니까?"</string>
     <string name="reboot_safemode_title" msgid="7054509914500140361">"안전 모드로 다시 부팅"</string>
     <string name="reboot_safemode_confirm" msgid="55293944502784668">"안전 모드로 다시 부팅하시겠습니까? 그러면 설치한 모든 제3자 애플리케이션을 사용할 수 없게 됩니다. 다시 부팅을 반복하면 애플리케이션이 복원됩니다."</string>

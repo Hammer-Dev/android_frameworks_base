@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 /* //device/apps/common/assets/res/any/strings.xml
 **
@@ -52,5 +52,13 @@
     <string name="reboot_confirm" product="default">디바이스가 재부팅됩니다.</string>
     <!-- Label for item that reboots the device in phone options dialog -->
     <string name="global_action_reboot">디바이스 재부팅</string>
-
+    <!-- Names of default profiles. -->
+    <string name="profileNameDefault">기본</string>
+    <string name="profileNameWork">직장</string>
+    <string name="profileNameHome">집</string>
+    <string name="profileNameSilent">조용히</string>
+    <string name="profileNameNight">밤</string>
+    <string name="profileNameAutomobile">자동차</string>
+    <!-- Label for item that opens the profile choosing dialog -->
+    <string name="global_action_choose_profile">프로필</string>
 </resources>
